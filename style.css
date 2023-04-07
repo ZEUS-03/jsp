@@ -1,0 +1,26 @@
+.form-ctrl i {
+    position: absolute;
+    margin-top: 4px;
+    visibility: hidden;
+}
+.form-ctrl .error {
+    display: inline-block;
+    padding-left: 20px;
+    visibility: hidden;
+}
+.input-control input:focus {
+    outline: 0;
+}
+
+.input-control .success input {
+    border: green;
+}
+
+.input-control .error input {
+    border: red 2px double;
+}
+.input-control .error {
+    color: #ff3860;
+    font-size: 9px;
+    height: 16px;
+}
