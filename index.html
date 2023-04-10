@@ -9,7 +9,6 @@
             rel="stylesheet"
         />
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <script defer src="src/index.js"></script>
         <link rel="stylesheet" href="style.css" />
 
         <title>Validation Project</title>
@@ -18,7 +17,7 @@
         <h1 class="text-center register-heading mt-4 mb-5">
             User Registration Form
         </h1>
-        <form action="#" id="form" class="container" method="get">
+        <form action="/login.html" id="form" class="container" method="get">
             <div class="row m3 p3">
                 <div class="col mx-5 my-3 input-control" id="first">
                     <label for="user" class="fw-semibold form-label"
@@ -80,8 +79,8 @@
                         Status
                     </button>
                     <ul class="dropdown-menu">
-                        <li class="dropdown-item">Active</li>
-                        <li class="dropdown-item">Inactive</li>
+                        <li id="active" class="dropdown-item">Active</li>
+                        <li id="inactive" class="dropdown-item">Inactive</li>
                     </ul>
                 </div>
             </div>
@@ -91,7 +90,7 @@
                         >Password:</label
                     >
                     <input
-                        type="text"
+                        type="password"
                         class="form-control"
                         id="pass"
                         placeholder="Enter your Password"
@@ -106,7 +105,7 @@
                         >Comfirm Password:</label
                     >
                     <input
-                        type="text"
+                        type="password"
                         class="form-control"
                         id="confirm_pass"
                         placeholder="Confirm your Password"
@@ -123,5 +122,6 @@
                 value="submit"
             />
         </form>
+        <script defer src="src/index.js"></script>
     </body>
 </html>
