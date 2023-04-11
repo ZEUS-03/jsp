@@ -1,4 +1,5 @@
 // elements
+
 const form = document.getElementById("form");
 const user = document.getElementById("user");
 const lname = document.getElementById("lname");
@@ -12,8 +13,9 @@ const inActiveBtn = document.getElementById("inactive");
 
 const MINIMUM_PASS_LENGTH = 8;
 let onlineStatus = "";
-
+let store;
 const username = document.getElementById("username");
+
 activeBtn.addEventListener("click", () => {
     onlineStatus = "active";
 });
@@ -24,7 +26,9 @@ inActiveBtn.addEventListener("click", () => {
 
 form.addEventListener("submit", (e) => {
     let error = false;
-
+    if (localStorage.getItem("test6") === null) {
+        localStorage.setItem("test6", "{}");
+    }
     const userValue = user.value.trim();
     const lnameValue = lname.value.trim();
     const passwordValue = password.value.trim();
@@ -70,6 +74,10 @@ form.addEventListener("submit", (e) => {
     } else {
         setSuccess(password2);
     }
+    if (isEmailExists(emailValue)) {
+        error = true;
+        setError(email, "Email already registered!");
+    }
     if (error === true) {
         console.log(error);
         e.preventDefault();
@@ -81,10 +89,30 @@ form.addEventListener("submit", (e) => {
             pass: passwordValue,
             status: onlineStatus,
         };
-        localStorage.setItem("userinfo", JSON.stringify(userInfo));
+        getStorage(store, userInfo);
+
         return true;
     }
 });
+
+const isEmailExists = (email) => {
+    let check = JSON.parse(localStorage.getItem("test6"));
+    if (check[[email]] !== undefined) {
+        return true;
+    } else {
+        return false;
+    }
+};
+
+const getStorage = (store, userInfo) => {
+    let email = userInfo.emailAddress;
+
+    store = JSON.parse(localStorage.getItem("test6"));
+
+    store[[email]] = { userInfo };
+
+    localStorage.setItem("test6", JSON.stringify(store));
+};
 
 const setSuccess = (element) => {
     const inputControl = element.parentElement;

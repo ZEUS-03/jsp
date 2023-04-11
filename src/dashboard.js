@@ -4,7 +4,7 @@ const emailElement = document.getElementById("email");
 const statusElement = document.getElementById("status");
 const userName = document.getElementById("username");
 
-let user = JSON.parse(localStorage.getItem("userinfo"));
+let user = JSON.parse(localStorage.getItem("loggedInUser"));
 
 user.firstName === ""
     ? (userName.textContent = "Guest")
