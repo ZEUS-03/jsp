@@ -8,6 +8,7 @@ const password2 = document.getElementById("confirm_pass");
 const email = document.getElementById("email");
 const activeBtn = document.getElementById("active");
 const inActiveBtn = document.getElementById("inactive");
+const statusBtn = document.getElementById("status");
 
 // variables
 
@@ -18,16 +19,22 @@ const username = document.getElementById("username");
 
 activeBtn.addEventListener("click", () => {
     onlineStatus = "active";
+    statusBtn.innerHTML = "Active";
+    statusBtn.classList.add("btn-primary");
+    statusBtn.classList.remove("btn-warning");
 });
 
 inActiveBtn.addEventListener("click", () => {
     onlineStatus = "inactive";
+    statusBtn.innerHTML = "Inactive";
+    statusBtn.classList.add("btn-warning");
+    statusBtn.classList.remove("btn-primary");
 });
 
 form.addEventListener("submit", (e) => {
     let error = false;
-    if (localStorage.getItem("test6") === null) {
-        localStorage.setItem("test6", "{}");
+    if (localStorage.getItem("finalTest") === null) {
+        localStorage.setItem("finalTest", "{}");
     }
     const userValue = user.value.trim();
     const lnameValue = lname.value.trim();
@@ -96,7 +103,7 @@ form.addEventListener("submit", (e) => {
 });
 
 const isEmailExists = (email) => {
-    let check = JSON.parse(localStorage.getItem("test6"));
+    let check = JSON.parse(localStorage.getItem("finalTest"));
     if (check[[email]] !== undefined) {
         return true;
     } else {
@@ -107,11 +114,11 @@ const isEmailExists = (email) => {
 const getStorage = (store, userInfo) => {
     let email = userInfo.emailAddress;
 
-    store = JSON.parse(localStorage.getItem("test6"));
+    store = JSON.parse(localStorage.getItem("finalTest"));
 
     store[[email]] = { userInfo };
 
-    localStorage.setItem("test6", JSON.stringify(store));
+    localStorage.setItem("finalTest", JSON.stringify(store));
 };
 
 const setSuccess = (element) => {

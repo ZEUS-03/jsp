@@ -22,7 +22,7 @@ export const isValidEmail = (email) => {
 };
 
 export const isEmailExists = (email) => {
-    let check = JSON.parse(localStorage.getItem("test6"));
+    let check = JSON.parse(localStorage.getItem("finalTest"));
     if (check[[email]] !== undefined) {
         return true;
     } else {

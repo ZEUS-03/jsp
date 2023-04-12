@@ -11,10 +11,9 @@ form.addEventListener("submit", (e) => {
     const emailValue = logInEmail.value;
     const passValue = logInPass.value;
     let error = false;
-    let user = JSON.parse(localStorage.getItem("test6"));
+    let user = JSON.parse(localStorage.getItem("finalTest"));
 
     if (!isEmailExists(emailValue)) {
-        console.log("email not registered!");
         wrongEmailMessage.innerHTML = "email not registered!";
         error = true;
     } else {

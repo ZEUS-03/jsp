@@ -15,12 +15,17 @@
     <body>
         <nav class="nav d-flex justify-content-between bg-primary shadow-lg">
             <h2 class="mx-3 my-1 p-2 fs-2 text-white">Dashboard</h2>
-            <p
-                class="user-name text-white fw-semibold mx-5 my-4 px-4"
-                id="username"
-            >
-                Guest
-            </p>
+            <div class="d-flex">
+                <p
+                    class="user-name text-white fw-semibold mx-5 my-4 px-4"
+                    id="username"
+                >
+                    Guest
+                </p>
+                <button class="btn btn-danger mx-3 h-50 mt-3" id="logout">
+                    logout
+                </button>
+            </div>
         </nav>
         <h3 class="m-3 p-2">User Listing</h3>
         <section class="bg-dark m-2 text-white fs-4">

@@ -3,6 +3,7 @@ const lnameElement = document.getElementById("lname");
 const emailElement = document.getElementById("email");
 const statusElement = document.getElementById("status");
 const userName = document.getElementById("username");
+const logOutBtn = document.getElementById("logout");
 
 let user = JSON.parse(localStorage.getItem("loggedInUser"));
 
@@ -16,3 +17,7 @@ emailElement.textContent = user.emailAddress;
 user.status === ""
     ? (statusElement.textContent = "none")
     : (statusElement.textContent = user.status);
+
+logOutBtn.addEventListener("click", () => {
+    location.href = "login.html";
+});
