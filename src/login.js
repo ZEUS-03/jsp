@@ -31,7 +31,7 @@ form.addEventListener("submit", (e) => {
     if (error === true) {
         e.preventDefault();
     } else {
-        localStorage.setItem(
+        sessionStorage.setItem(
             "loggedInUser",
             JSON.stringify(user[[emailValue]].userInfo)
         );

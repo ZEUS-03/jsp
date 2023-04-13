@@ -5,7 +5,9 @@ const statusElement = document.getElementById("status");
 const userName = document.getElementById("username");
 const logOutBtn = document.getElementById("logout");
 
-let user = JSON.parse(localStorage.getItem("loggedInUser"));
+let user = JSON.parse(sessionStorage.getItem("loggedInUser"));
+
+// (user===null) ? document.createElement("")
 
 user.firstName === ""
     ? (userName.textContent = "Guest")
@@ -19,5 +21,7 @@ user.status === ""
     : (statusElement.textContent = user.status);
 
 logOutBtn.addEventListener("click", () => {
-    location.href = "login.html";
+    sessionStorage.clear();
+    history.pushState(null, null, "login.html");
+    window.location.replace("login.html");
 });
